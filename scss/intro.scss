@@ -1,0 +1,97 @@
+.intro {
+	margin-top: 40px;
+	padding-bottom: 116px;
+	&__container {
+	}
+
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 50px;
+
+		@media (min-width: 700px) {
+			flex-direction: row;
+			gap: 0;
+		}
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		@media (min-width: 700px) {
+			align-items: flex-start;
+			@include adaptiv-value('flex-basis', 750, 300);
+		}
+	}
+
+	&__title {
+		@include adaptiv-value("font-size", 80, 46);
+		letter-spacing: -2.4px;
+		@media (min-width: 700px) {
+			text-align: left;
+		}
+	}
+
+	&__text {
+		@include adaptiv-value("margin-top", 32, 24);
+		text-align: center;
+		@media (min-width: 700px) {
+			text-align: left;
+		}
+	}
+
+	&__action-btn {
+		@include adaptiv-value("margin-top", 32, 12);
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+
+		@media (min-width: 700px) {
+			margin-left: 0;
+		}
+	}
+
+	&__phone {
+		flex: 1;
+	}
+}
+
+.intro-bots {
+	@include adaptiv-value("margin-top", 56, 24);
+	&__list {
+		display: flex;
+	}
+
+	&__item {
+		@include adaptiv-value("width", 63, 61);
+		@include adaptiv-value("height", 63, 61);
+		border: 2px solid white;
+		@include adaptiv-value("border-width", 4, 2);
+		overflow: hidden;
+		border-radius: 50%;
+
+		&:not(:last-child) {
+			@include adaptiv-value("margin-right", -15, -12);
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+
+	&__text {
+		@include adaptiv-value("margin-top", 16, 14);
+		text-align: center;
+	}
+}
+.intro-phone {
+	display: flex;
+	justify-content: center;
+	img {
+		@include adaptiv-value("width", 328, 302);
+	}
+}

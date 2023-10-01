@@ -1,0 +1,66 @@
+@import "reset";
+@import "variables";
+@import "fonts";
+
+$minWidth: 375;
+$maxWidth: 1920;
+
+//Адаптивное свойство
+@mixin adaptiv-value($indentType, $pcSize, $mobSize) {
+	$addSize: $pcSize - $mobSize;
+	#{$indentType}: calc(#{$mobSize + px} + #{$addSize} * ((100vw - #{$minWidth+px}) / #{$maxWidth - $minWidth}));
+}
+
+body {
+	font-family: "Inter";
+	font-weight: 500;
+	@include adaptiv-value("font-size", 20, 18);
+	line-height: 1.2;
+	color: var(--dark);
+}
+
+.container {
+	padding: 0 20px;
+	margin: 0 auto;
+	max-width: 1240px;
+}
+
+.btn {
+	background-color: var(--main);
+	@include adaptiv-value('padding', 18, 12);
+	@include adaptiv-value('padding-left', 42, 32);
+	@include adaptiv-value('padding-right', 42, 32);
+
+	color: white;
+	border-radius: 100px;
+	@include adaptiv-value('font-size', 20, 18);
+	font-weight: 500;
+}
+
+.title {
+	font-size: 32px;
+	font-weight: 600;
+	line-height: 1.1;
+	text-align: center;
+
+	span {
+		color: var(--main);
+	}
+}
+
+.subtitle {
+	font-size: 28px;
+	font-weight: 600;
+	line-height: 1.1;
+}
+
+//===========================================================
+
+@import "header";
+@import "intro";
+
+//===========================================================
+
+.dn {
+	display: none;
+}

@@ -1,0 +1,40 @@
+.header {
+	padding-top: 44px;
+
+	&__container {
+		display: flex;
+		padding-top: 9px;
+		padding-bottom: 9px;
+		align-items: center;
+		gap: 8px;
+	}
+
+	&__logo {
+		flex: 1;
+	}
+
+	&__mode-switcher {
+	}
+
+	&__action-btn {
+		background-color: rgba(41, 126, 226, 0.12);
+		color: var(--main);
+	}
+}
+
+.logo {
+	border-radius: 12px;
+	width: 46px;
+	height: 46px;
+	overflow: hidden;
+}
+.mode-switcher {
+	padding: 5px;
+	margin-right: 10px;
+	height: 100%;
+	background-color: transparent;
+
+	img {
+		@include adaptiv-value('width', 32, 24);
+	}
+}
