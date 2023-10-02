@@ -42,6 +42,7 @@ body {
 	font-weight: 600;
 	line-height: 1.1;
 	text-align: center;
+	letter-spacing: -1px;
 
 	span {
 		color: var(--main);
@@ -59,14 +60,20 @@ body {
 }
 
 .tg {
-	padding: 0 28px;
+	padding: 0 32px;
 	border-radius: 24px;
 	* {
 		font-size: 14px;
-		font-family: 'San Francisco Pro';
+		font-family: "San Francisco Pro";
 		font-weight: 400;
 	}
 	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 3px;
+		border-radius: 13px;
+		overflow: hidden;
+		width: 100%;
 	}
 
 	&__msg-list {
@@ -78,9 +85,9 @@ body {
 .tg-msg {
 	background-color: #fff;
 	color: var(--dark);
-	border-radius: 13px;
+	border-radius: 5px;
 	padding: 7px 11px;
-	@include adaptiv-value('font-size', 20, 14);
+	@include adaptiv-value("font-size", 20, 14);
 
 	img {
 		height: 1em;
@@ -91,28 +98,56 @@ body {
 		font-weight: 700;
 	}
 
-	&:not(:last-child){
+	&:not(:last-child) {
 		margin-bottom: 3px;
 	}
 
 	.time {
-		color: rgba(17, 17, 17, 0.40);
+		color: rgba(17, 17, 17, 0.4);
 		font-weight: 500;
-		@include adaptiv-value('font-size', 15, 11);
+		@include adaptiv-value("font-size", 15, 11);
 		padding-left: 5px;
 		padding-top: 0.4em;
 		float: right;
-		
 	}
 	.clear {
 		clear: both;
 	}
 }
 .tg-link {
+	background-color: #96adc6;
+	position: relative;
+
+	&::after {
+		content: "";
+		background: url("../img/icons/tg-link.svg") center / contain no-repeat;
+		position: absolute;
+		width: 7px;
+		height: 7px;
+		top: 6px;
+		right: 6px;
+	}
 }
 .tg-action {
 	font-weight: 500;
 	color: white;
+	width: 100%;
+	padding: 11px 0;
+	border-radius: 5px;
+}
+.tg-code {
+	background-color: var(--dark);
+	padding: 11px;
+	font-family: "SF-Mono", monospace;
+	line-height: 1.5;
+	@include adaptiv-value('font-size', 18, 12);
+
+	.blue {
+		color: #61baef;
+	}
+	pre {
+		tab-size: 4;
+	}
 }
 
 //===========================================================

@@ -2,7 +2,8 @@
 // Исходные данные по слайдеру (const)
 const sliderSlides = document.querySelectorAll('.slider__slide'),
 	sliderLine = document.querySelector('.slider__line'),
-	sliderDots = document.querySelectorAll('.slider__dot');
+	sliderDots = document.querySelectorAll('.slider__dot'),
+	sliderCurNumberEl = document.querySelector('.slider__cur-count');
 
 // Переменные    
 let sliderCount = 0,
@@ -12,7 +13,7 @@ let sliderCount = 0,
 window.addEventListener('resize', showSlide);
 
 // Автоматическое перелистывание слайдов
-// setInterval(() => {
+// let timeout = setInterval(() => {
 // 	nextSlide()
 // }, 2000);
 
@@ -33,18 +34,19 @@ function nextSlide() {
 	sliderCount++;
 	if (sliderCount >= sliderSlides.length) sliderCount = 0;
 
+	animate()
 	rollSlider();
 	thisSlide(sliderCount);
 }
 
 // Перелистывает слайд назад
-function prevSlide() {
-	sliderCount--;
-	if (sliderCount < 0) sliderCount = sliderSlides.length - 1;
+// function prevSlide() {
+// 	sliderCount--;
+// 	if (sliderCount < 0) sliderCount = sliderSlides.length - 1;
 
-	rollSlider();
-	thisSlide(sliderCount);
-}
+// 	rollSlider();
+// 	thisSlide(sliderCount);
+// }
 
 // Задает шаг перемещения слайдов
 function rollSlider() {
@@ -55,13 +57,28 @@ function rollSlider() {
 function thisSlide(index) {
 	sliderDots.forEach(item => item.classList.remove('active-dot'));
 	sliderDots[index].classList.add('active-dot');
+	sliderCurNumberEl.textContent = `0${index + 1}`
+}
+
+function animate() {
+	sliderLine.classList.remove('anim')
+	setTimeout(() => {
+		sliderLine.classList.add('anim')
+	})
 }
 
 // Вешает клик на dot
 sliderDots.forEach((dot, index) => {
 	dot.addEventListener('click', () => {
 		sliderCount = index;
+		animate()
 		rollSlider();
 		thisSlide(sliderCount);
+
+		clearInterval(timeout)
+
+		timeout = setInterval(() => {
+			nextSlide()
+		}, 2000);
 	})
 })

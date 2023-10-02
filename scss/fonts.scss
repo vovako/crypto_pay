@@ -54,3 +54,11 @@
 	font-weight: 700;
 	font-style: normal;
 }
+@font-face {
+  font-family: 'SF-Mono';
+  src: url('..fonts/SF-Mono-Regular.woff2') format('woff2'),
+       url('..fonts/SF-Mono-Regular.woff') format('woff'),
+			url('..fonts/SF-Mono-Regular.woff') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+}
