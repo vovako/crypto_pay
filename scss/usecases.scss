@@ -1,8 +1,8 @@
 .usecases {
 	background-color: var(--dark-2);
 	color: white;
-	@include adaptiv-value("padding-top", 196, 32);
-	@include adaptiv-value("padding-bottom", 210, 32);
+	@include adaptiv-value("padding-top", 170, 32);
+	@include adaptiv-value("padding-bottom", 170, 32);
 
 	&__container {
 	}
@@ -12,7 +12,7 @@
 		flex-direction: column;
 		padding-bottom: 20px;
 
-		@media (min-width: 500px) {
+		@media (min-width: 700px) {
 			padding-bottom: 0;
 			padding-right: 20px;
 			// flex-direction: row;
@@ -35,6 +35,10 @@
 				background: linear-gradient(0deg, #c2e9fb -16.6%, #a1c4fd 106.15%);
 			}
 		}
+
+		@media (min-width: 700px) {
+			align-items: flex-start;
+		}
 	}
 
 	.slider__content {
@@ -43,16 +47,29 @@
 		flex-direction: column;
 		width: min-content;
 		flex: 1 1 auto;
-		@include adaptiv-value("gap", 122, 32);
+		gap: 32px;
+
+		@media (min-width: 700px) {
+			padding-bottom: 0;
+			@include adaptiv-value("gap", 100, 32);
+			flex-direction: row;
+			width: auto;
+		}
 	}
 
 	.tg {
-		max-width: 100%;
+		max-width: calc(100vw - 40px);
+		max-height: calc(100vw - 40px);
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		@include adaptiv-value("height", 488, 335);
-		@include adaptiv-value("width", 488, 335);
+		@include adaptiv-value("height", 488, 300);
+		@include adaptiv-value("width", 488, 300);
+		
+		@media (min-width: 700px) {
+			@include adaptiv-value("height", 488, 260);
+			@include adaptiv-value("width", 488, 260);
+		}
 	}
 
 	&__image {
@@ -63,20 +80,36 @@
 		flex-direction: column;
 		flex: 1;
 		width: 100%;
+
+		@media (min-width: 700px) {
+			align-items: flex-start;
+			padding-right: 20px;
+		}
 	}
 
 	&__title {
+		@media (min-width: 700px) {
+			text-align: left;
+		}
 	}
 
 	&__text {
 		@include adaptiv-value("margin-top", 32, 24);
 		text-align: center;
 		flex: 1;
+
+		@media (min-width: 700px) {
+			text-align: left;
+		}
 	}
 
 	&__action-btn {
 		width: 100%;
 		margin: 32px 0;
+
+		@media (min-width: 700px) {
+			width: auto;
+		}
 	}
 
 	&__pagination {
@@ -84,13 +117,14 @@
 		bottom: 0;
 		left: 50%;
 		transform: translate(-50%, 0);
-		width: 408px;
-		@media (min-width: 500px) {
+		max-width: 100%;
+		@include adaptiv-value("width", 408, 300);
+		@media (min-width: 700px) {
 			bottom: auto;
 			left: auto;
 			right: 0;
 			top: 50%;
-			transform:  translate(calc(50% - 10px), -50%) rotate(90deg);
+			transform: translate(calc(50% - 10px), -50%) rotate(90deg);
 
 			.slider__cur-count,
 			.slider__all-count {
