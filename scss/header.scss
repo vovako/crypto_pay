@@ -13,6 +13,26 @@
 		flex: 1;
 	}
 
+	&__menu {
+		display: none;
+		gap: 32px;
+		justify-content: center;
+		flex: 1 1 auto;
+
+		a {
+			color: var(--dark);
+			font-weight: 500;
+
+			&:visited {
+				color: var(--dark);
+			}
+		}
+
+		@media (min-width: 700px) {
+			display: flex;
+		}
+	}
+
 	&__mode-switcher {
 	}
 
@@ -35,6 +55,6 @@
 	background-color: transparent;
 
 	img {
-		@include adaptiv-value('width', 32, 24);
+		@include adaptiv-value("width", 32, 24);
 	}
 }

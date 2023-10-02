@@ -27,13 +27,13 @@ body {
 
 .btn {
 	background-color: var(--main);
-	@include adaptiv-value('padding', 18, 12);
-	@include adaptiv-value('padding-left', 42, 32);
-	@include adaptiv-value('padding-right', 42, 32);
+	@include adaptiv-value("padding", 18, 12);
+	@include adaptiv-value("padding-left", 42, 32);
+	@include adaptiv-value("padding-right", 42, 32);
 
 	color: white;
 	border-radius: 100px;
-	@include adaptiv-value('font-size', 20, 18);
+	@include adaptiv-value("font-size", 20, 18);
 	font-weight: 500;
 }
 
@@ -54,10 +54,72 @@ body {
 	line-height: 1.1;
 }
 
+.text {
+	font-weight: 400;
+}
+
+.tg {
+	padding: 0 28px;
+	border-radius: 24px;
+	* {
+		font-size: 14px;
+		font-family: 'San Francisco Pro';
+		font-weight: 400;
+	}
+	&__wrapper {
+	}
+
+	&__msg-list {
+	}
+
+	&__actions {
+	}
+}
+.tg-msg {
+	background-color: #fff;
+	color: var(--dark);
+	border-radius: 13px;
+	padding: 7px 11px;
+	@include adaptiv-value('font-size', 20, 14);
+
+	img {
+		height: 1em;
+		vertical-align: middle;
+	}
+
+	b {
+		font-weight: 700;
+	}
+
+	&:not(:last-child){
+		margin-bottom: 3px;
+	}
+
+	.time {
+		color: rgba(17, 17, 17, 0.40);
+		font-weight: 500;
+		@include adaptiv-value('font-size', 15, 11);
+		padding-left: 5px;
+		padding-top: 0.4em;
+		float: right;
+		
+	}
+	.clear {
+		clear: both;
+	}
+}
+.tg-link {
+}
+.tg-action {
+	font-weight: 500;
+	color: white;
+}
+
 //===========================================================
 
 @import "header";
 @import "intro";
+@import "usecases";
 
 //===========================================================
 
