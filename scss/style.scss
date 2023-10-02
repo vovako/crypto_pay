@@ -17,6 +17,15 @@ body {
 	@include adaptiv-value("font-size", 20, 18);
 	line-height: 1.2;
 	color: var(--dark);
+
+	background-color: #fff;
+	&.dark-theme {
+		background-color: var(--dark);
+		color: white;
+	}
+}
+
+section {
 }
 
 .container {
@@ -30,15 +39,15 @@ body {
 	@include adaptiv-value("padding", 18, 12);
 	@include adaptiv-value("padding-left", 42, 32);
 	@include adaptiv-value("padding-right", 42, 32);
-
+	@include adaptiv-value("font-size", 20, 18);
+	border: 1px solid transparent;
 	color: white;
 	border-radius: 100px;
-	@include adaptiv-value("font-size", 20, 18);
 	font-weight: 500;
 }
 
 .title {
-	@include adaptiv-value('font-size', 56, 32);
+	@include adaptiv-value("font-size", 56, 32);
 	font-weight: 600;
 	line-height: 1.1;
 	text-align: center;
@@ -60,8 +69,8 @@ body {
 }
 
 .tg {
-	@include adaptiv-value('padding-left', 46, 20);
-	@include adaptiv-value('padding-right', 46, 20);
+	@include adaptiv-value("padding-left", 46, 20);
+	@include adaptiv-value("padding-right", 46, 20);
 	border-radius: 24px;
 	* {
 		font-size: 14px;
@@ -141,7 +150,7 @@ body {
 	padding: 11px;
 	font-family: "SF-Mono", monospace;
 	line-height: 1.5;
-	@include adaptiv-value('font-size', 18, 12);
+	@include adaptiv-value("font-size", 18, 12);
 
 	.blue {
 		color: #61baef;

@@ -65,7 +65,7 @@
 		align-items: center;
 		@include adaptiv-value("height", 488, 300);
 		@include adaptiv-value("width", 488, 300);
-		
+
 		@media (min-width: 700px) {
 			@include adaptiv-value("height", 488, 260);
 			@include adaptiv-value("width", 488, 260);
@@ -180,6 +180,14 @@
 		}
 		to {
 			opacity: 1;
+		}
+	}
+}
+
+body {
+	&.dark-theme {
+		.usecases {
+			background-color: var(--dark-bg);
 		}
 	}
 }

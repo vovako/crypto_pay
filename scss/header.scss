@@ -58,3 +58,18 @@
 		@include adaptiv-value("width", 32, 24);
 	}
 }
+
+body {
+	&.dark-theme {
+		.header__menu {
+			a {
+				color: white;
+			}
+		}
+		.header__action-btn {
+			border: 1px solid rgba(255, 255, 255, 0.6);
+			background-color: transparent;
+			color: white;
+		}
+	}
+}

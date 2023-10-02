@@ -1,3 +1,26 @@
+const switchThemeModeBtn = document.querySelector('.mode-switcher')
+
+switchThemeModeBtn.addEventListener('click', function () {
+	switchTheme()
+})
+
+function switchTheme() {
+	const curTheme = localStorage.getItem('theme') ?? ''
+
+	const introPhoneImg = document.querySelector('.intro-phone img')
+
+	if (curTheme === 'dark') {
+		switchThemeModeBtn.querySelector('img').src = 'img/icons/light-mode.svg'
+		localStorage.setItem('theme', 'light')
+		document.body.classList.remove('dark-theme')
+		introPhoneImg.src = 'img/phone.png'
+	} else {
+		switchThemeModeBtn.querySelector('img').src = 'img/icons/dark-mode.svg'
+		localStorage.setItem('theme', 'dark')
+		document.body.classList.add('dark-theme')
+		introPhoneImg.src = 'img/phone-d.png'
+	}
+}
 
 // Исходные данные по слайдеру (const)
 const sliderSlides = document.querySelectorAll('.slider__slide'),

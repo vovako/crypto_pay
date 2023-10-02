@@ -69,8 +69,8 @@
 	&__item {
 		@include adaptiv-value("width", 63, 61);
 		@include adaptiv-value("height", 63, 61);
-		border: 2px solid white;
 		@include adaptiv-value("border-width", 4, 2);
+		border: 2px solid white;
 		overflow: hidden;
 		border-radius: 50%;
 
@@ -95,5 +95,13 @@
 	justify-content: center;
 	img {
 		@include adaptiv-value("width", 328, 302);
+	}
+}
+
+body {
+	&.dark-theme {
+		.intro-bots__item {
+			border-color: var(--dark);
+		}
 	}
 }
