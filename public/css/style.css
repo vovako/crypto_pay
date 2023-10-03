@@ -49,6 +49,7 @@ textarea, input {
   --dark: #0D0D12;
   --dark-2: #232328;
   --dark-bg: #18181D;
+  --light-bg: #F7F9FB;
   --main: #41A4DF;
 }
 
@@ -229,6 +230,10 @@ body.dark-theme {
   -moz-tab-size: 4;
     -o-tab-size: 4;
        tab-size: 4;
+}
+
+.blue {
+  color: var(--main);
 }
 
 .header {
@@ -561,6 +566,10 @@ body.dark-theme .usecases {
   background-color: var(--dark-bg);
 }
 
+.features-currencies__body {
+  display: flex;
+  flex-wrap: wrap;
+}
 .dn {
   display: none;
 }

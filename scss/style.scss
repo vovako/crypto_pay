@@ -159,12 +159,16 @@ section {
 		tab-size: 4;
 	}
 }
+.blue {
+	color: var(--main);
+}
 
 //===========================================================
 
 @import "header";
 @import "intro";
 @import "usecases";
+@import "features";
 
 //===========================================================
 

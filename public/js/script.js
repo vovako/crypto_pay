@@ -32,16 +32,12 @@ const sliderSlides = document.querySelectorAll('.slider__slide'),
 let sliderCount = 0,
 	sliderWidth;
 
-// Адаптивность слайдера
-window.addEventListener('resize', showSlide);
-
 // Автоматическое перелистывание слайдов
-// let timeout = setInterval(() => {
-// 	nextSlide()
-// }, 2000);
+let timeout = setInterval(() => {
+	nextSlide()
+}, 2000);
 
 
-// Функции ==================
 // Задает нужную ширину картинки и sliderLine
 function showSlide() {
 	sliderWidth = document.querySelector('.slider').offsetWidth;
@@ -63,13 +59,13 @@ function nextSlide() {
 }
 
 // Перелистывает слайд назад
-// function prevSlide() {
-// 	sliderCount--;
-// 	if (sliderCount < 0) sliderCount = sliderSlides.length - 1;
+function prevSlide() {
+	sliderCount--;
+	if (sliderCount < 0) sliderCount = sliderSlides.length - 1;
 
-// 	rollSlider();
-// 	thisSlide(sliderCount);
-// }
+	rollSlider();
+	thisSlide(sliderCount);
+}
 
 // Задает шаг перемещения слайдов
 function rollSlider() {
@@ -90,7 +86,6 @@ function animate() {
 	})
 }
 
-// Вешает клик на dot
 sliderDots.forEach((dot, index) => {
 	dot.addEventListener('click', () => {
 		sliderCount = index;
