@@ -37,6 +37,7 @@ let timeout = setInterval(() => {
 	nextSlide()
 }, 2000);
 
+window.addEventListener('resize', showSlide)
 
 // Задает нужную ширину картинки и sliderLine
 function showSlide() {

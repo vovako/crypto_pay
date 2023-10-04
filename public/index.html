@@ -206,9 +206,11 @@
 							<div class="features-currencies-item__text">BNB</div>
 						</div>
 					</div>
-					<div class="features-currencies__title subtitle">Accept a wide range of cryptocurrencies</div>
-					<div class="features-currencies__text text">Bill any supported cryptocurrencies with asset parameter in <span
-							class="blue">GetInvoice</span> method</div>
+					<div class="features-currencies__text-block">
+						<div class="features-currencies__title subtitle">Accept a wide range of cryptocurrencies</div>
+						<div class="features-currencies__text text">Bill any supported cryptocurrencies with asset parameter in <span
+								class="blue">GetInvoice</span> method</div>
+					</div>
 				</div>
 
 				<div class="features-oneclick features__item">
@@ -237,8 +239,14 @@
 							</div>
 						</div>
 						<div class="features-rates__swap-btn">
-							<img src="img/icons/arrow.svg" alt="">
-							<img src="img/icons/arrow.svg" alt="">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 11" fill="none">
+								<path d="M1 5.45438H20.01M20.01 5.45438L15.5556 1M20.01 5.45438L15.5556 9.90876" stroke="#29313D"
+									stroke-opacity="0.92" stroke-width="2" stroke-linecap="round" stroke-linejoin="bevel" />
+							</svg>
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 11" fill="none">
+								<path d="M1 5.45438H20.01M20.01 5.45438L15.5556 1M20.01 5.45438L15.5556 9.90876" stroke="#29313D"
+									stroke-opacity="0.92" stroke-width="2" stroke-linecap="round" stroke-linejoin="bevel" />
+							</svg>
 						</div>
 						<img src="img/dollar.svg" alt="" class="features-rates__dollar">
 					</div>
@@ -247,27 +255,62 @@
 							class="blue">getExchangeRates</span> API method</div>
 				</div>
 
-				<div class="features-statistics">
-					<div class="features-statistics__body"></div>
+				<div class="features-statistics features__item">
+					<div class="features-statistics__body">
+						<div class="tg">
+							<div class="tg__wrapper">
+								<div class="tg__msg-list">
+									<div class="tg-msg">
+										Application Statistics <b>@GoodsBot</b> for <b>all time:</b><br>
+										<br>
+										Volume: <b>$6,530</b><br>
+										<br>
+										The number of created invoices: <b>15,569</b><br>
+										Number of payments: <b>6,453</b><br>
+										Number of users: <b>5,606</b><br>
+										<br>
+										Conversion: <b>41%</b>
+										<span class="time">21:30</span>
+										<div class="clear"></div>
+									</div>
+								</div>
+								<div class="tg__actions">
+									<div class="tg-action">· All Time ·</div>
+									<div class="tg-action">Today</div>
+									<div class="tg-action">Yesterday</div>
+									<div class="tg-action">Week</div>
+									<div class="tg-action">Month</div>
+									<div class="tg-action">&lt; Back</div>
+								</div>
+							</div>
+						</div>
+					</div>
 					<div class="features-statistics__title subtitle">Payment statistics</div>
 					<div class="features-statistics__text text">Open <span class="blue">@CryptoBot</span>, go to <span class="blue">Crypto Pay</span> and <span class="blue">My Apps</span>, App Name to get Statistics</div>
 				</div>
 
-				<div class="features-send">
+				<div class="features-send features__item">
 					<div class="features-send__body">
 						<div class="features-send__phone">
 							<div class="features-send__notice-list">
 								<div class="phone-notice">
 									<div class="phone-notice__image-part">
 										<div class="phone-notice__image">
-											<img class="phone-notice__image-bot" src="" alt="">
-											<img class="phone-notice__image-app" src="" alt="">
+											<img class="phone-notice__image-bot" src="img/icons/logo.svg" alt="">
+											<img class="phone-notice__image-app" src="img/icons/tg-logo.svg" alt="">
 										</div>
 									</div>
 									<div class="phone-notice__body">
 										<div class="phone-notice__header">
-											<div class="phone-notice__title"></div>
-											<div class="phone-notice__time"></div>
+											<div class="phone-notice__title">Crypto Bot</div>
+											<div class="phone-notice__time">now</div>
+										</div>
+										<div class="tg-msg">
+											<img src="img/icons/money.png" alt="">You received 3448 TON ($5000)
+											from @CryptoBot #A777<br>
+											<br>
+											<img src="img/icons/speech.png" alt="">Design contest awards<img src="img/icons/award.png" alt="">
+
 										</div>
 									</div>
 								</div>
@@ -278,9 +321,22 @@
 					<div class="features-send__text text">Automate payouts to users with <span class="blue">transfer</span> API method</div>
 				</div>
 
-				<div class="features-anon">
+				<div class="features-anon features__item">
 					<div class="features-anon__body">
-
+						<div class="tg">
+							<div class="tg__wrapper">
+								<div class="tg__msg-list">
+									<div class="tg-msg">
+										<img src="img/icons/tree.png" alt=""> <b>Anonymous</b> paid your invoice #IV53.
+										You received <b>3442 TON ($5000).</b><br>
+										<br>
+										<img src="img/icons/speech.png" alt="">A generous donation! Keep working hard <img src="img/icons/hard.png" alt="">
+										<span class="time">21:25</span>
+										<div class="clear"></div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 					<div class="features-anon__title subtitle">Anonymous payments</div>
 					<div class="features-anon__text text">Use allow_anonymous parameter in <span class="blue">createInvoice</span> method to give user an option to remain private</div>

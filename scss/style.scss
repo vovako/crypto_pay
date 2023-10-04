@@ -59,9 +59,10 @@ section {
 }
 
 .subtitle {
-	font-size: 28px;
+	@include adaptiv-value('font-size', 42, 28);
 	font-weight: 600;
 	line-height: 1.1;
+	letter-spacing: -1px;
 }
 
 .text {
@@ -81,7 +82,7 @@ section {
 		display: flex;
 		flex-direction: column;
 		gap: 3px;
-		border-radius: 13px;
+		@include adaptiv-value('border-radius', 16, 9);
 		overflow: hidden;
 		width: 100%;
 	}
@@ -102,6 +103,7 @@ section {
 	img {
 		height: 1em;
 		vertical-align: middle;
+		margin-right: 0.2em;
 	}
 
 	b {
@@ -144,6 +146,7 @@ section {
 	width: 100%;
 	padding: 11px 0;
 	border-radius: 5px;
+	text-align: center;
 }
 .tg-code {
 	background-color: var(--dark);
@@ -161,6 +164,7 @@ section {
 }
 .blue {
 	color: var(--main);
+	font-weight: 500;
 }
 
 //===========================================================
