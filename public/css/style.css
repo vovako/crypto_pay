@@ -983,6 +983,65 @@ body.dark-theme .features-send__phone .phone-notice .tg-msg {
   color: var(--dark);
 }
 
+body.dark-theme .start {
+  background-color: var(--dark-bg);
+}
+body.dark-theme .start-step__number {
+  background: white;
+  color: var(--dark);
+}
+body.dark-theme .start-step__ul span {
+  color: rgba(255, 255, 255, 0.8);
+}
+body.dark-theme .start-step__text {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.api {
+  padding-top: calc(80px + 40 * (100vw - 375px) / 1545);
+  padding-bottom: calc(80px + 40 * (100vw - 375px) / 1545);
+}
+.api__wrapper {
+  background: url("../img/api-bg-mob.jpg") center/cover no-repeat;
+  color: white;
+  padding: calc(28px + 52 * (100vw - 375px) / 1545);
+  padding-bottom: 28px;
+  padding-top: 290px;
+  border-radius: calc(24px + 16 * (100vw - 375px) / 1545);
+}
+@media (min-width: 700px) {
+  .api__wrapper {
+    background: url("../img/api-bg.jpg") center/cover no-repeat;
+    padding-top: calc(30px + 97 * (100vw - 375px) / 1545);
+    padding-bottom: calc(30px + 97 * (100vw - 375px) / 1545);
+  }
+}
+.api__body {
+  display: flex;
+  flex-direction: column;
+  gap: calc(24px + 8 * (100vw - 375px) / 1545);
+}
+@media (min-width: 700px) {
+  .api__body {
+    width: -moz-min-content;
+    width: min-content;
+  }
+}
+.api__title {
+  text-align: left;
+  white-space: nowrap;
+}
+.api__api-btn {
+  background-color: transparent;
+  border-color: white;
+}
+@media (min-width: 700px) {
+  .api__api-btn {
+    width: -moz-max-content;
+    width: max-content;
+  }
+}
+
 .dn {
   display: none;
 }

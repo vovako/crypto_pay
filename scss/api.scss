@@ -1,0 +1,47 @@
+.api {
+	@include adaptiv-value("padding-top", 120, 80);
+	@include adaptiv-value("padding-bottom", 120, 80);
+
+	&__container {
+	}
+	&__wrapper {
+		background: url("../img/api-bg-mob.jpg") center / cover no-repeat;
+		color: white;
+		@include adaptiv-value("padding", 80, 28);
+		padding-bottom: 28px;
+		padding-top: 290px;
+
+		@include adaptiv-value("border-radius", 40, 24);
+
+		@media (min-width: 700px) {
+			background: url("../img/api-bg.jpg") center / cover no-repeat;
+			@include adaptiv-value("padding-top", 127, 30);
+			@include adaptiv-value("padding-bottom", 127, 30);
+		}
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		@include adaptiv-value("gap", 32, 24);
+		@media (min-width: 700px) {
+			width: min-content;
+		}
+	}
+
+	&__title {
+		text-align: left;
+		white-space: nowrap;
+	}
+
+	&__text {
+	}
+
+	&__api-btn {
+		background-color: transparent;
+		border-color: white;
+		@media (min-width: 700px) {
+			width: max-content;
+		}
+	}
+}

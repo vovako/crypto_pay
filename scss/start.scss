@@ -108,3 +108,24 @@
 		}
 	}
 }
+
+body {
+	&.dark-theme {
+		.start {
+			background-color: var(--dark-bg);
+		}
+		.start-step__number {
+			background: white;
+			color: var(--dark);
+		}
+		.start-step__ul {
+			span {
+				color: rgba(255, 255, 255, 0.80);
+			}
+		}
+		.start-step__text {
+			color: rgba(255, 255, 255, 0.80);
+		}
+	}
+}
+

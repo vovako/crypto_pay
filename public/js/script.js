@@ -1,24 +1,35 @@
 const switchThemeModeBtn = document.querySelector('.mode-switcher')
+const curTheme = localStorage.getItem('theme') ?? ''
+if (curTheme === 'dark') {
+	switchTheme('dark')
+}
+
 
 switchThemeModeBtn.addEventListener('click', function () {
-	switchTheme()
+	const curTheme = localStorage.getItem('theme') ?? ''
+	if (curTheme === 'dark') {
+		switchTheme('')
+	} else {
+		switchTheme('dark')
+	}
 })
 
-function switchTheme() {
-	const curTheme = localStorage.getItem('theme') ?? ''
+
+function switchTheme(theme) {
 
 	const introPhoneImg = document.querySelector('.intro-phone img')
 
-	if (curTheme === 'dark') {
-		switchThemeModeBtn.querySelector('img').src = 'img/icons/light-mode.svg'
-		localStorage.setItem('theme', 'light')
-		document.body.classList.remove('dark-theme')
-		introPhoneImg.src = 'img/phone.png'
-	} else {
+	if (theme === 'dark') {
 		switchThemeModeBtn.querySelector('img').src = 'img/icons/dark-mode.svg'
 		localStorage.setItem('theme', 'dark')
 		document.body.classList.add('dark-theme')
 		introPhoneImg.src = 'img/phone-d.png'
+	}
+	else {
+		switchThemeModeBtn.querySelector('img').src = 'img/icons/light-mode.svg'
+		localStorage.setItem('theme', 'light')
+		document.body.classList.remove('dark-theme')
+		introPhoneImg.src = 'img/phone.png'
 	}
 }
 
