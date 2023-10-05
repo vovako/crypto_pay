@@ -73,6 +73,10 @@ section {
 	@include adaptiv-value("padding-left", 46, 20);
 	@include adaptiv-value("padding-right", 46, 20);
 	border-radius: 24px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
 	* {
 		font-size: 14px;
 		font-family: "San Francisco Pro";
@@ -98,6 +102,7 @@ section {
 	color: var(--dark);
 	border-radius: 5px;
 	padding: 7px 11px;
+	word-break: break-word;
 	@include adaptiv-value("font-size", 20, 14);
 
 	img {
@@ -153,10 +158,17 @@ section {
 	padding: 11px;
 	font-family: "SF-Mono", monospace;
 	line-height: 1.5;
+	color: white;
 	@include adaptiv-value("font-size", 18, 12);
 
 	.blue {
 		color: #61baef;
+	}
+	.yellow {
+		color: #FCEF8F;
+	}
+	.red {
+		color: #D46565;
 	}
 	pre {
 		tab-size: 4;
@@ -173,6 +185,7 @@ section {
 @import "intro";
 @import "usecases";
 @import "features";
+@import "start";
 
 //===========================================================
 
