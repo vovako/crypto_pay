@@ -1,0 +1,58 @@
+.community {
+	@include adaptiv-value("padding-bottom", 80, 40);
+	@include adaptiv-value("border-radius", 40, 24);
+	position: relative;
+	background-color: #fff;
+	&__container {
+	}
+
+	&__title {
+	}
+
+	&__text {
+		text-align: center;
+		margin-top: 24px;
+	}
+
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 24px 12px;
+		@include adaptiv-value("margin-top", 40, 24);
+	}
+
+	&__action-btn {
+		margin: 0 auto;
+		@include adaptiv-value("margin-top", 40, 24);
+		display: block;
+	}
+}
+
+.community-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 16px;
+
+	&__image {
+		@include adaptiv-value("width", 96, 63);
+		@include adaptiv-value("height", 96, 63);
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__text {
+		text-align: center;
+	}
+}
+
+body {
+	&.dark-theme {
+		.community {
+			background-color: var(--dark);
+		}
+	}
+}

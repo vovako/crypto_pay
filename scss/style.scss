@@ -44,6 +44,11 @@ section {
 	color: white;
 	border-radius: 100px;
 	font-weight: 500;
+
+	&_hollow {
+		border-color: white;
+		background-color: transparent;
+	}
 }
 
 .title {
@@ -177,6 +182,14 @@ section {
 .blue {
 	color: var(--main);
 	font-weight: 500;
+}
+
+body {
+	&.dark-theme {
+		.text {
+			color: rgba(255, 255, 255, 0.80);
+		}
+	}
 }
 
 //===========================================================

@@ -7,9 +7,10 @@
 	&__grid {
 		display: grid;
 		@include adaptiv-value("gap", 20, 16);
-
+		
 		@media (min-width: 700px) {
 			grid-template-columns: 41% 18% 41%;
+			width: calc(100% - 40px);
 		}
 	}
 

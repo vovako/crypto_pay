@@ -1,0 +1,17 @@
+.footer {
+	background-color: var(--dark-bg);
+	@include adaptiv-value('padding-top', 120, 56);
+	@include adaptiv-value('padding-bottom', 40, 32);
+	@include adaptiv-value('margin-top', -40, -24);
+	color: white;
+	&__container {
+	}
+
+	&__header {
+	}
+
+	&__copyright {
+		margin-top: 24px;
+		color: white;
+	}
+}

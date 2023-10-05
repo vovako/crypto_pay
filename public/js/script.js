@@ -7,30 +7,35 @@ if (curTheme === 'dark') {
 
 switchThemeModeBtn.addEventListener('click', function () {
 	const curTheme = localStorage.getItem('theme') ?? ''
+	console.log('cur theme', curTheme);
 	if (curTheme === 'dark') {
-		switchTheme('')
+		console.log('switch cur to light');
+		switchTheme('light')
 	} else {
+		console.log('switch cur to dark');
 		switchTheme('dark')
 	}
 })
 
 
 function switchTheme(theme) {
-
+	console.log(theme);
 	const introPhoneImg = document.querySelector('.intro-phone img')
 
 	if (theme === 'dark') {
-		switchThemeModeBtn.querySelector('img').src = 'img/icons/dark-mode.svg'
-		localStorage.setItem('theme', 'dark')
-		document.body.classList.add('dark-theme')
-		introPhoneImg.src = 'img/phone-d.png'
+		console.log(theme);
+		switchThemeModeBtn.querySelector('img').src = 'img/icons/dark-mode.svg';
+		localStorage.setItem('theme', 'dark');
+		document.body.classList.add('dark-theme');
+		introPhoneImg.src = 'img/phone-d.png';
+	} else {
+		console.log(theme);
+		switchThemeModeBtn.querySelector('img').src = 'img/icons/light-mode.svg';
+		localStorage.setItem('theme', 'light');
+		document.body.classList.remove('dark-theme');
+		introPhoneImg.src = 'img/phone.png';
 	}
-	else {
-		switchThemeModeBtn.querySelector('img').src = 'img/icons/light-mode.svg'
-		localStorage.setItem('theme', 'light')
-		document.body.classList.remove('dark-theme')
-		introPhoneImg.src = 'img/phone.png'
-	}
+	console.log('local storage theme is', localStorage.getItem('theme'));
 }
 
 // Исходные данные по слайдеру (const)

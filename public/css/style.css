@@ -125,6 +125,10 @@ body.dark-theme {
   border-radius: 100px;
   font-weight: 500;
 }
+.btn_hollow {
+  border-color: white;
+  background-color: transparent;
+}
 
 .title {
   font-size: calc(32px + 24 * (100vw - 375px) / 1545);
@@ -249,6 +253,10 @@ body.dark-theme {
 .blue {
   color: var(--main);
   font-weight: 500;
+}
+
+body.dark-theme .text {
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .header {
@@ -592,6 +600,7 @@ body.dark-theme .usecases {
 @media (min-width: 700px) {
   .features__grid {
     grid-template-columns: 41% 18% 41%;
+    width: calc(100% - 40px);
   }
 }
 .features__item {
@@ -1040,6 +1049,64 @@ body.dark-theme .start-step__text {
     width: -moz-max-content;
     width: max-content;
   }
+}
+
+.community {
+  padding-bottom: calc(40px + 40 * (100vw - 375px) / 1545);
+  border-radius: calc(24px + 16 * (100vw - 375px) / 1545);
+  position: relative;
+  background-color: #fff;
+}
+.community__text {
+  text-align: center;
+  margin-top: 24px;
+}
+.community__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px 12px;
+  margin-top: calc(24px + 16 * (100vw - 375px) / 1545);
+}
+.community__action-btn {
+  margin: 0 auto;
+  margin-top: calc(24px + 16 * (100vw - 375px) / 1545);
+  display: block;
+}
+
+.community-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.community-item__image {
+  width: calc(63px + 33 * (100vw - 375px) / 1545);
+  height: calc(63px + 33 * (100vw - 375px) / 1545);
+}
+.community-item__image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.community-item__text {
+  text-align: center;
+}
+
+body.dark-theme .community {
+  background-color: var(--dark);
+}
+
+.footer {
+  background-color: var(--dark-bg);
+  padding-top: calc(56px + 64 * (100vw - 375px) / 1545);
+  padding-bottom: calc(32px + 8 * (100vw - 375px) / 1545);
+  margin-top: calc(-24px + -16 * (100vw - 375px) / 1545);
+  color: white;
+}
+.footer__copyright {
+  margin-top: 24px;
+  color: white;
 }
 
 .dn {
