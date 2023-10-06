@@ -676,13 +676,16 @@ body.dark-theme .usecases {
 }
 .features-oneclick__btn {
   border-radius: 17px;
+  background: linear-gradient(240deg, rgba(41, 126, 226, 0.12) 3.57%, rgba(24, 97, 182, 0.12) 86.24%);
   font-size: 22px;
   font-weight: 500;
   padding: 18px 40px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  animation: btn-l 2s 99999 linear;
+}
+.features-oneclick__btn.anim {
+  animation: btn-l 2s infinite linear;
 }
 .features-oneclick__btn img {
   height: 1.4em;
@@ -693,74 +696,8 @@ body.dark-theme .usecases {
   right: 0;
   bottom: 0;
   transform: translate(100%, 100%);
-  animation: cursor 2s 99999 linear;
+  animation: cursor 2s infinite linear;
 }
-@keyframes cursor {
-  40% {
-    transform: translate(20%, 50%);
-  }
-  60% {
-    transform: translate(20%, 50%);
-  }
-  90% {
-    transform: translate(100%, 100%);
-  }
-}
-@keyframes btn-l {
-  0% {
-    background: linear-gradient(240deg, rgba(41, 126, 226, 0.12) 3.57%, rgba(24, 97, 182, 0.12) 86.24%);
-    transform: scale(1);
-  }
-  39% {
-    background: linear-gradient(240deg, rgba(41, 126, 226, 0.12) 3.57%, rgba(24, 97, 182, 0.12) 86.24%);
-    transform: scale(1);
-  }
-  40% {
-    background: #d4e2f7;
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  60% {
-    background: #d4e2f7;
-    transform: scale(1);
-  }
-  63% {
-    background: linear-gradient(240deg, rgba(41, 126, 226, 0.12) 3.57%, rgba(24, 97, 182, 0.12) 86.24%);
-  }
-  100% {
-    background: linear-gradient(240deg, rgba(41, 126, 226, 0.12) 3.57%, rgba(24, 97, 182, 0.12) 86.24%);
-  }
-}
-@keyframes btn-d {
-  0% {
-    background: linear-gradient(233deg, #9fccfa -20.48%, #0974f1 97.38%);
-    transform: scale(1);
-  }
-  39% {
-    background: linear-gradient(233deg, #9fccfa -20.48%, #0974f1 97.38%);
-    transform: scale(1);
-  }
-  40% {
-    background: linear-gradient(233deg, hsl(210, 90%, 60%) -20.48%, hsl(212, 93%, 29%) 97.38%);
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  60% {
-    background: linear-gradient(233deg, hsl(210, 90%, 60%) -20.48%, hsl(212, 93%, 29%) 97.38%);
-    transform: scale(1);
-  }
-  63% {
-    background: linear-gradient(233deg, #9fccfa -20.48%, #0974f1 97.38%);
-  }
-  100% {
-    background: linear-gradient(233deg, #9fccfa -20.48%, #0974f1 97.38%);
-  }
-}
-
 .features-rates__body {
   display: flex;
   align-items: center;
@@ -950,7 +887,9 @@ body.dark-theme .features__item {
 }
 body.dark-theme .features-oneclick__btn {
   background: linear-gradient(233deg, #9fccfa -20.48%, #0974f1 97.38%);
-  animation-name: btn-d;
+}
+body.dark-theme .features-oneclick__btn.anim {
+  animation: btn-d 2s infinite linear;
 }
 body.dark-theme .features-oneclick__cursor path {
   stroke: black;
@@ -975,6 +914,57 @@ body.dark-theme .features-send__phone .phone-notice .tg-msg {
   color: white;
 }
 
+@keyframes cursor {
+  40% {
+    transform: translate(20%, 50%);
+  }
+  60% {
+    transform: translate(20%, 50%);
+  }
+  90% {
+    transform: translate(100%, 100%);
+  }
+}
+@keyframes btn-l {
+  39% {
+    background: linear-gradient(240deg, rgba(41, 126, 226, 0.12) 3.57%, rgba(24, 97, 182, 0.12) 86.24%);
+    transform: scale(1);
+  }
+  40% {
+    background: #d4e2f7;
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  60% {
+    background: #d4e2f7;
+    transform: scale(1);
+  }
+  63% {
+    background: linear-gradient(240deg, rgba(41, 126, 226, 0.12) 3.57%, rgba(24, 97, 182, 0.12) 86.24%);
+  }
+}
+@keyframes btn-d {
+  39% {
+    background: linear-gradient(233deg, #9fccfa -20.48%, #0974f1 97.38%);
+    transform: scale(1);
+  }
+  40% {
+    background: linear-gradient(233deg, hsl(210, 90%, 60%) -20.48%, hsl(212, 93%, 29%) 97.38%);
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  60% {
+    background: linear-gradient(233deg, hsl(210, 90%, 60%) -20.48%, hsl(212, 93%, 29%) 97.38%);
+    transform: scale(1);
+  }
+  63% {
+    background: linear-gradient(233deg, #9fccfa -20.48%, #0974f1 97.38%);
+  }
+}
 .start {
   padding-top: calc(32px + 88 * (100vw - 375px) / 1545);
   padding-bottom: calc(32px + 88 * (100vw - 375px) / 1545);

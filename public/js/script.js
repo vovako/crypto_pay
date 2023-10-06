@@ -13,15 +13,19 @@ switchThemeModeBtn.addEventListener('click', function () {
 	} else {
 		switchTheme('dark')
 	}
-	location.reload() //_FIX_
 
+	
 })
 
 
 function switchTheme(theme) {
+	const allAnim = document.getAnimations()
+
+	allAnim.forEach((anim) => {
+		anim.effect.target.classList.remove('anim')
+	});
 
 	const introPhoneImg = document.querySelector('.intro-phone img')
-
 	if (theme === 'dark') {
 		switchThemeModeBtn.querySelector('img').src = 'img/icons/dark-mode.svg';
 		localStorage.setItem('theme', 'dark');
@@ -34,6 +38,16 @@ function switchTheme(theme) {
 		introPhoneImg.src = 'img/phone.png';
 	}
 
+	window.requestAnimationFrame(() => {
+		window.requestAnimationFrame(() => {
+			allAnim.forEach((anim) => {
+				anim.effect.target.classList.add('anim')
+				anim.currentTime = 0
+			});
+		})
+	})
+	
+	
 }
 
 // Исходные данные по слайдеру (const)
