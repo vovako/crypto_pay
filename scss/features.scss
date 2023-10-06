@@ -108,10 +108,7 @@
 		display: inline-flex;
 		justify-content: center;
 		align-items: center;
-
-		&.anim {
-			animation: btn-l 2s infinite linear;
-		}
+		animation: btn-l 2s infinite linear;
 		img {
 			height: 1.4em;
 			margin-right: 4px;
@@ -381,7 +378,7 @@ body {
 		.features-oneclick__btn {
 			background: linear-gradient(233deg, #9fccfa -20.48%, #0974f1 97.38%);
 			&.anim {
-				animation: btn-d 2s infinite linear;
+				animation-name: btn-d;
 			}
 		}
 		.features-oneclick__cursor {

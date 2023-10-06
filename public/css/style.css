@@ -683,8 +683,6 @@ body.dark-theme .usecases {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-}
-.features-oneclick__btn.anim {
   animation: btn-l 2s infinite linear;
 }
 .features-oneclick__btn img {
@@ -889,7 +887,7 @@ body.dark-theme .features-oneclick__btn {
   background: linear-gradient(233deg, #9fccfa -20.48%, #0974f1 97.38%);
 }
 body.dark-theme .features-oneclick__btn.anim {
-  animation: btn-d 2s infinite linear;
+  animation-name: btn-d;
 }
 body.dark-theme .features-oneclick__cursor path {
   stroke: black;
