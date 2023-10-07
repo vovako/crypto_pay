@@ -17,6 +17,7 @@ switchThemeModeBtn.addEventListener('click', function () {
 
 setInterval(() => changeOrder(document.querySelectorAll(".features-rates__item")), 700);
 setInterval(() => changeOrder(document.querySelectorAll(".phone-notice"), true), 1300);
+setInterval(() => changeOrder(document.querySelectorAll(".features-anon .tg-msg"), true), 1000);
 
 
 function switchTheme(theme) {

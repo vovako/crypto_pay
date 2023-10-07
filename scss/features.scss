@@ -369,10 +369,12 @@
 	}
 
 	&::after {
-		content: '';
+		content: "";
 		display: block;
-		width: 100%;
-		height: 100%;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
 		position: absolute;
 		background: linear-gradient(98deg, #e8f2f9 15.04%, #e8f2f9 52.22%, #e9f1fa 90.93%);
 	}
@@ -407,8 +409,53 @@
 			@include adaptiv-value("padding", 26, 22);
 			@include adaptiv-value("padding-top", 48, 24);
 			@include adaptiv-value("padding-bottom", 48, 24);
+			
+			.tg__msg-list {
+				position: relative;
+				@include adaptiv-value("height", 153, 123);
+			}
+
 			.tg-msg {
 				@include adaptiv-value("font-size", 18, 11);
+				@include adaptiv-value("border-radius", 16, 9);
+				position: absolute;
+				transition: 1s;
+				transition-property: top, transform, opacity;
+
+				&::after {
+					content: "";
+					display: block;
+					position: absolute;
+					top: 0;
+					left: 0;
+					bottom: 0;
+					right: 0;
+					background: white;
+					border-radius: 30px;
+					transition: 1s opacity;
+				}
+
+				&[data-order="1"] {
+					z-index: 1;
+					top: 0%;
+					transform: translateY(50%) scale(0.9);
+					opacity: 0;
+				}
+				&[data-order="2"] {
+					z-index: 2;
+					top: 35%;
+					transform: translateY(-35%) scale(0.9);
+					opacity: 0.7;
+				}
+				&[data-order="3"] {
+					z-index: 3;
+					top: 100%;
+					transform: translateY(-100%) scale(1);
+					opacity: 1;
+					&::after {
+						opacity: 0;
+					}
+				}
 			}
 		}
 	}
