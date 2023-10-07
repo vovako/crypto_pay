@@ -64,7 +64,7 @@ section {
 }
 
 .subtitle {
-	@include adaptiv-value('font-size', 42, 28);
+	@include adaptiv-value("font-size", 42, 28);
 	font-weight: 600;
 	line-height: 1.1;
 	letter-spacing: -1px;
@@ -91,8 +91,6 @@ section {
 		display: flex;
 		flex-direction: column;
 		gap: 3px;
-		@include adaptiv-value('border-radius', 16, 9);
-		overflow: hidden;
 		width: 100%;
 	}
 
@@ -100,6 +98,10 @@ section {
 	}
 
 	&__actions {
+		@include adaptiv-value("border-radius", 16, 9);
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+		overflow: hidden;
 	}
 }
 .tg-msg {
@@ -109,6 +111,7 @@ section {
 	padding: 7px 11px;
 	word-break: break-word;
 	@include adaptiv-value("font-size", 20, 14);
+	position: relative;
 
 	img {
 		height: 1em;
@@ -120,6 +123,12 @@ section {
 		font-weight: 700;
 	}
 
+	&:first-child {
+		@include adaptiv-value("border-radius", 16, 9);
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+
 	&:not(:last-child) {
 		margin-bottom: 3px;
 	}
@@ -127,13 +136,30 @@ section {
 	.time {
 		color: rgba(17, 17, 17, 0.4);
 		font-weight: 500;
-		@include adaptiv-value("font-size", 15, 11);
+		font-size: 0.75em;
 		padding-left: 5px;
 		padding-top: 0.4em;
 		float: right;
 	}
 	.clear {
 		clear: both;
+	}
+
+	&.tail {
+		@include adaptiv-value("border-bottom-left-radius", 16, 9);
+		@include adaptiv-value("border-bottom-right-radius", 16, 9);
+
+		&::before {
+			content: "";
+			background: url('../img/icons/msg-tail.svg') bottom right / contain no-repeat;
+			width: 25px;
+			height: 25px;
+			position: absolute;
+			right: 100%;
+			bottom: 0;
+			display: block;
+			transform: translateX(70%);
+		}
 	}
 }
 .tg-link {
@@ -170,10 +196,10 @@ section {
 		color: #61baef;
 	}
 	.yellow {
-		color: #FCEF8F;
+		color: #fcef8f;
 	}
 	.red {
-		color: #D46565;
+		color: #d46565;
 	}
 	pre {
 		tab-size: 4;
@@ -187,7 +213,7 @@ section {
 body {
 	&.dark-theme {
 		.text {
-			color: rgba(255, 255, 255, 0.80);
+			color: rgba(255, 255, 255, 0.8);
 		}
 	}
 }

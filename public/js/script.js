@@ -15,7 +15,8 @@ switchThemeModeBtn.addEventListener('click', function () {
 	}
 })
 
-setInterval(changeOrder, 700);
+setInterval(() => changeOrder(document.querySelectorAll(".features-rates__item")), 700);
+setInterval(() => changeOrder(document.querySelectorAll(".phone-notice"), true), 1300);
 
 
 function switchTheme(theme) {
@@ -47,23 +48,41 @@ function switchTheme(theme) {
 	})
 }
 
-function changeOrder() {
-	const allSlides = document.querySelectorAll(".features-rates__item");
+function changeOrder(allSlides, reverse = false) {
 
-	for (const slide of allSlides) {
-		const order = +slide.dataset.order;
-		switch (order) {
-			case 1:
-				slide.setAttribute("data-order", 2);
-				break;
-			case 2:
-				slide.setAttribute("data-order", 3);
-				break;
-			case 3:
-				slide.setAttribute("data-order", 1);
-				break;
+	if (reverse) {
+		for (const slide of allSlides) {
+			const order = +slide.dataset.order;
+			switch (order) {
+				case 1:
+					slide.setAttribute("data-order", 3);
+					break;
+				case 2:
+					slide.setAttribute("data-order", 1);
+					break;
+				case 3:
+					slide.setAttribute("data-order", 2);
+					break;
+			}
+		}
+	} else {
+		for (const slide of allSlides) {
+			const order = +slide.dataset.order;
+			switch (order) {
+				case 1:
+					slide.setAttribute("data-order", 2);
+					break;
+				case 2:
+					slide.setAttribute("data-order", 3);
+					break;
+				case 3:
+					slide.setAttribute("data-order", 1);
+					break;
+			}
 		}
 	}
+
+
 }
 
 // slider
