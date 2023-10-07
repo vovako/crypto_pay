@@ -13,17 +13,12 @@ switchThemeModeBtn.addEventListener('click', function () {
 	} else {
 		switchTheme('dark')
 	}
-
-	
 })
+
+setInterval(changeOrder, 700);
 
 
 function switchTheme(theme) {
-	const allAnim = document.getAnimations()
-
-	allAnim.forEach((anim) => {
-		anim.effect.target.classList.remove('anim')
-	});
 
 	const introPhoneImg = document.querySelector('.intro-phone img')
 	if (theme === 'dark') {
@@ -38,32 +33,50 @@ function switchTheme(theme) {
 		introPhoneImg.src = 'img/phone.png';
 	}
 
+	document.getAnimations().forEach((anim) => {
+		anim.effect.target.classList.remove('anim')
+	});
+
 	window.requestAnimationFrame(() => {
 		window.requestAnimationFrame(() => {
-			allAnim.forEach((anim) => {
+			document.getAnimations().forEach((anim) => {
 				anim.effect.target.classList.add('anim')
 				anim.currentTime = 0
 			});
 		})
 	})
-	
-	
 }
 
-// Исходные данные по слайдеру (const)
+function changeOrder() {
+	const allSlides = document.querySelectorAll(".features-rates__item");
+
+	for (const slide of allSlides) {
+		const order = +slide.dataset.order;
+		switch (order) {
+			case 1:
+				slide.setAttribute("data-order", 2);
+				break;
+			case 2:
+				slide.setAttribute("data-order", 3);
+				break;
+			case 3:
+				slide.setAttribute("data-order", 1);
+				break;
+		}
+	}
+}
+
+// slider
 const sliderSlides = document.querySelectorAll('.slider__slide'),
 	sliderLine = document.querySelector('.slider__line'),
 	sliderDots = document.querySelectorAll('.slider__dot'),
 	sliderCurNumberEl = document.querySelector('.slider__cur-count');
 
-// Переменные    
 let sliderCount = 0,
 	sliderWidth;
 
 // Автоматическое перелистывание слайдов
-let timeout = setInterval(() => {
-	nextSlide()
-}, 2000);
+let timeout = setInterval(nextSlide, 2000);
 
 window.addEventListener('resize', showSlide)
 
@@ -77,7 +90,6 @@ function showSlide() {
 }
 showSlide();
 
-// Перелистывает слайд вперед
 function nextSlide() {
 	sliderCount++;
 	if (sliderCount >= sliderSlides.length) sliderCount = 0;
@@ -87,7 +99,6 @@ function nextSlide() {
 	thisSlide(sliderCount);
 }
 
-// Перелистывает слайд назад
 function prevSlide() {
 	sliderCount--;
 	if (sliderCount < 0) sliderCount = sliderSlides.length - 1;
@@ -107,11 +118,13 @@ function thisSlide(index) {
 	sliderDots[index].classList.add('active-dot');
 	sliderCurNumberEl.textContent = `0${index + 1}`
 }
-
+// анимация перехода слайдера
 function animate() {
 	sliderLine.classList.remove('anim')
-	setTimeout(() => {
-		sliderLine.classList.add('anim')
+	window.requestAnimationFrame(() => {
+		window.requestAnimationFrame(() => {
+			sliderLine.classList.add('anim')
+		})
 	})
 }
 
@@ -124,8 +137,6 @@ sliderDots.forEach((dot, index) => {
 
 		clearInterval(timeout)
 
-		timeout = setInterval(() => {
-			nextSlide()
-		}, 2000);
+		timeout = setInterval(nextSlide, 2000);
 	})
 })
