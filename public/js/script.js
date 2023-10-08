@@ -4,6 +4,8 @@ if (curTheme === 'dark') {
 	switchTheme('dark')
 }
 
+currenciesAnimation()
+
 
 switchThemeModeBtn.addEventListener('click', function () {
 
@@ -14,16 +16,6 @@ switchThemeModeBtn.addEventListener('click', function () {
 		switchTheme('dark')
 	}
 })
-
-let oneClickInterval
-let ratesInterval
-
-currenciesAnimation()
-
-setInterval(() => changeOrder(document.querySelectorAll(".phone-notice"), true), 1300);
-setInterval(() => changeOrder(document.querySelectorAll(".features-anon .tg-msg"), true), 1300);
-setInterval(statisticsAnim, 1150);
-
 
 function switchTheme(theme) {
 
@@ -40,21 +32,12 @@ function switchTheme(theme) {
 		introPhoneImg.src = 'img/phone.png';
 	}
 
-	document.getAnimations().forEach((anim) => {
-		anim.effect.target.classList.remove('anim')
-	});
-
-	window.requestAnimationFrame(() => {
-		window.requestAnimationFrame(() => {
-			document.getAnimations().forEach((anim) => {
-				anim.effect.target.classList.add('anim')
-				anim.currentTime = 0
-			});
-		})
-	})
 }
 
+
 function currenciesAnimation() {
+	const currenciesItems = document.querySelectorAll('.features-currencies-item')
+
 	const interval = setInterval(() => {
 		let curIndex = null;
 		currenciesItems.forEach((item, i) => {
@@ -73,13 +56,50 @@ function currenciesAnimation() {
 				currenciesItems[curIndex + 1].classList.add('active')
 			} else {
 				clearInterval(interval)
-				ratesAnimation()
+				oneClickAnimation()
 			}
 		}
 	}, 400);
 }
 function oneClickAnimation() {
-	
+	const btn = document.querySelector('.features-oneclick__btn')
+	const cursor = document.querySelector('.features-oneclick__cursor')
+	btn.classList.remove('anim')
+	cursor.classList.remove('anim')
+
+	window.requestAnimationFrame(() => {
+		window.requestAnimationFrame(() => {
+			btn.classList.add('anim')
+			const btnAnim = btn.getAnimations()[0]
+			btnAnim.currentTime = 0
+			btnAnim.play()
+
+			cursor.classList.add('anim')
+			const cursorAnim = cursor.getAnimations()[0]
+			cursorAnim.currentTime = 0
+			cursorAnim.play()
+		})
+	})
+
+	setTimeout(() => {
+		ratesAnimation()
+	}, 2000)
+
+
+	// cursor.getAnimations()[0].play()
+	// document.getAnimations().forEach((anim) => {
+	// 	anim.effect.target.classList.remove('anim')
+	// });
+
+	// window.requestAnimationFrame(() => {
+	// 	window.requestAnimationFrame(() => {
+	// 		document.getAnimations().forEach((anim) => {
+	// 			anim.effect.target.classList.add('anim')
+	// 			anim.currentTime = 0
+	// 			anim.pause()
+	// 		});
+	// 	})
+	// })
 }
 function ratesAnimation() {
 
@@ -105,17 +125,45 @@ function ratesAnimation() {
 
 		if (steps >= 3) {
 			clearInterval(interval)
-			fulfill()
+			statisticsAnimation()
 		}
-
 
 	}, 700);
 }
+function statisticsAnimation() {
+	const statisticsMsg = document.querySelectorAll('.features-statistics__body .tg-msg')
+	const statisticsButtons = [...document.querySelectorAll('.features-statistics__body .tg-action')].slice(0, 3)
+	
+	const interval = setInterval(function () {
+		let curIndex = null;
+		statisticsButtons.forEach((btn, i) => {
+			if (btn.classList.contains('active')) {
+				curIndex = i
+			}
+		})
 
-function changeOrder(allSlides, reverse = false) {
+		statisticsButtons[curIndex].classList.remove('active')
+		statisticsMsg[curIndex].classList.remove('active')
 
-	if (reverse) {
-		for (const slide of allSlides) {
+		if (curIndex === statisticsButtons.length - 1) {
+			statisticsButtons[0].classList.add('active')
+			statisticsMsg[0].classList.add('active')
+			clearInterval(interval)
+			sendAnimation()
+			return
+		}
+		statisticsButtons[curIndex + 1].classList.add('active')
+		statisticsMsg[curIndex + 1].classList.add('active')
+
+	}, 1150)
+
+}
+function sendAnimation() {
+	const notices = document.querySelectorAll(".phone-notice")
+	let steps = 0;
+	const interval = setInterval(() => {
+
+		for (const slide of notices) {
 			const order = +slide.dataset.order;
 			switch (order) {
 				case 1:
@@ -129,52 +177,44 @@ function changeOrder(allSlides, reverse = false) {
 					break;
 			}
 		}
-	} else {
-		for (const slide of allSlides) {
+
+		steps++
+		if (steps >= 3) {
+			clearInterval(interval)
+			anonAnimation()
+		}
+
+	}, 1300);
+}
+function anonAnimation() {
+	const notices = document.querySelectorAll(".features-anon .tg-msg")
+	let steps = 0;
+	const interval = setInterval(() => {
+
+		for (const slide of notices) {
 			const order = +slide.dataset.order;
 			switch (order) {
 				case 1:
-					slide.setAttribute("data-order", 2);
-					break;
-				case 2:
 					slide.setAttribute("data-order", 3);
 					break;
-				case 3:
+				case 2:
 					slide.setAttribute("data-order", 1);
+					break;
+				case 3:
+					slide.setAttribute("data-order", 2);
 					break;
 			}
 		}
-	}
 
-
-}
-const currenciesItems = document.querySelectorAll('.features-currencies-item')
-function currenciesAnim(interval) {
-
-
-}
-
-const statisticsMsg = document.querySelectorAll('.features-statistics__body .tg-msg')
-const statisticsButtons = [...document.querySelectorAll('.features-statistics__body .tg-action')].slice(0, 3)
-function statisticsAnim() {
-	let curIndex;
-	statisticsButtons.forEach((btn, i) => {
-		if (btn.classList.contains('active')) {
-			curIndex = i
+		steps++
+		if (steps >= 3) {
+			clearInterval(interval)
+			currenciesAnimation()
 		}
-	})
 
-	statisticsButtons[curIndex].classList.remove('active')
-	statisticsMsg[curIndex].classList.remove('active')
-
-	if (curIndex === statisticsButtons.length - 1) {
-		statisticsButtons[0].classList.add('active')
-		statisticsMsg[0].classList.add('active')
-		return
-	}
-	statisticsButtons[curIndex + 1].classList.add('active')
-	statisticsMsg[curIndex + 1].classList.add('active')
+	}, 1300);
 }
+
 
 // slider
 const sliderSlides = document.querySelectorAll('.slider__slide'),

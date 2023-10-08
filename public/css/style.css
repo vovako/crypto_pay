@@ -759,7 +759,9 @@ body.dark-theme .usecases {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  animation: btn-l 2s infinite linear;
+}
+.features-oneclick__btn.anim {
+  animation: btn-l 2s linear paused;
 }
 .features-oneclick__btn img {
   height: 1.4em;
@@ -770,7 +772,9 @@ body.dark-theme .usecases {
   right: 0;
   bottom: 0;
   transform: translate(100%, 100%);
-  animation: cursor 2s infinite linear;
+}
+.features-oneclick__cursor.anim {
+  animation: cursor 2s 1 linear paused;
 }
 .features-rates__body {
   display: flex;
@@ -1100,7 +1104,7 @@ body.dark-theme .features-oneclick__btn {
   background: linear-gradient(233deg, #9fccfa -20.48%, #0974f1 97.38%);
 }
 body.dark-theme .features-oneclick__btn.anim {
-  animation-name: btn-d;
+  animation: btn-d 2s linear paused;
 }
 body.dark-theme .features-oneclick__cursor path {
   stroke: black;
