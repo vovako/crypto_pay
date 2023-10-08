@@ -676,13 +676,31 @@ body.dark-theme .usecases {
 }
 .features-currencies__body .features-currencies-item__img {
   width: calc(56px + 40 * (100vw - 375px) / 1545);
+  transition: transform 400ms;
 }
 .features-currencies__body .features-currencies-item__text {
   display: none;
 }
 @media (min-width: 700px) {
+  .features-currencies__body .features-currencies-item__text {
+    display: block;
+    font-size: calc(12px + 2 * (100vw - 375px) / 1545);
+    margin-top: calc(8px + 4 * (100vw - 375px) / 1545);
+    color: rgba(0, 0, 0, 0.4);
+    transition: color 400ms;
+  }
+}
+.features-currencies__body .features-currencies-item.active .features-currencies-item__img {
+  transform: scale(1.1);
+}
+.features-currencies__body .features-currencies-item.active .features-currencies-item__text {
+  color: black;
+}
+@media (min-width: 700px) {
   .features-currencies__body .features-currencies-item {
     flex: 0 0 min-content;
+    flex-direction: column;
+    align-items: center;
   }
 }
 .features-currencies__title {
@@ -936,6 +954,9 @@ body.dark-theme .usecases {
   transform: translateY(-35%) scale(0.9);
   opacity: 0.7;
 }
+.phone-notice[data-order="2"]::after {
+  opacity: 0.7;
+}
 .phone-notice[data-order="3"] {
   z-index: 3;
   top: 100%;
@@ -990,6 +1011,9 @@ body.dark-theme .usecases {
   transform: translateY(-35%) scale(0.9);
   opacity: 0.7;
 }
+.features-anon__body .tg .tg-msg[data-order="2"]::after {
+  opacity: 0.7;
+}
 .features-anon__body .tg .tg-msg[data-order="3"] {
   z-index: 3;
   top: 100%;
@@ -1001,6 +1025,12 @@ body.dark-theme .usecases {
 }
 body.dark-theme .features__item {
   background-color: var(--dark-bg);
+}
+body.dark-theme .features-currencies-item__text {
+  color: rgba(255, 255, 255, 0.4);
+}
+body.dark-theme .features-currencies-item.active .features-currencies-item__text {
+  color: rgba(255, 255, 255, 0.8);
 }
 body.dark-theme .features-oneclick__btn {
   background: linear-gradient(233deg, #9fccfa -20.48%, #0974f1 97.38%);

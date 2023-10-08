@@ -18,6 +18,7 @@ switchThemeModeBtn.addEventListener('click', function () {
 setInterval(() => changeOrder(document.querySelectorAll(".features-rates__item")), 700);
 setInterval(() => changeOrder(document.querySelectorAll(".phone-notice"), true), 1300);
 setInterval(() => changeOrder(document.querySelectorAll(".features-anon .tg-msg"), true), 1000);
+setInterval(currenciesAnim, 400);
 
 
 function switchTheme(theme) {
@@ -84,6 +85,23 @@ function changeOrder(allSlides, reverse = false) {
 	}
 
 
+}
+const currenciesItems = document.querySelectorAll('.features-currencies-item')
+function currenciesAnim() {
+	let curIndex;
+	currenciesItems.forEach((item, i) => {
+		if (item.classList.contains('active')) {
+			curIndex = i
+		}
+	})
+
+	currenciesItems[curIndex].classList.remove('active')
+
+	if (curIndex === currenciesItems.length - 1) {
+		currenciesItems[0].classList.add('active')
+		return
+	}
+	currenciesItems[curIndex + 1].classList.add('active')
 }
 
 // slider

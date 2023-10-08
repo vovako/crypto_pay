@@ -64,14 +64,34 @@
 			}
 			&__img {
 				@include adaptiv-value("width", 96, 56);
+				transition: transform 400ms;
 			}
 
 			&__text {
 				display: none;
+
+				@media (min-width: 700px) {
+					display: block;
+					@include adaptiv-value("font-size", 14, 12);
+					@include adaptiv-value("margin-top", 12, 8);
+					color: rgba(black, 0.4);
+					transition: color 400ms;
+				}
+			}
+
+			&.active {
+				.features-currencies-item__img {
+					transform: scale(1.1);
+				}
+				.features-currencies-item__text {
+					color: rgba(black, 1);
+				}
 			}
 
 			@media (min-width: 700px) {
 				flex: 0 0 min-content;
+				flex-direction: column;
+				align-items: center;
 			}
 		}
 	}
@@ -390,6 +410,9 @@
 		top: 35%;
 		transform: translateY(-35%) scale(0.9);
 		opacity: 0.7;
+		&::after {
+			opacity: 0.7;
+		}
 	}
 	&[data-order="3"] {
 		z-index: 3;
@@ -409,7 +432,7 @@
 			@include adaptiv-value("padding", 26, 22);
 			@include adaptiv-value("padding-top", 48, 24);
 			@include adaptiv-value("padding-bottom", 48, 24);
-			
+
 			.tg__msg-list {
 				position: relative;
 				@include adaptiv-value("height", 153, 123);
@@ -446,6 +469,9 @@
 					top: 35%;
 					transform: translateY(-35%) scale(0.9);
 					opacity: 0.7;
+					&::after {
+						opacity: 0.7;
+					}
 				}
 				&[data-order="3"] {
 					z-index: 3;
@@ -471,6 +497,17 @@ body {
 	&.dark-theme {
 		.features__item {
 			background-color: var(--dark-bg);
+		}
+		.features-currencies-item {
+			&__text {
+				color: rgba(white, 0.4);
+			}
+
+			&.active {
+				.features-currencies-item__text {
+					color: rgba(white, 0.8);
+				}
+			}
 		}
 		.features-oneclick__btn {
 			background: linear-gradient(233deg, #9fccfa -20.48%, #0974f1 97.38%);
