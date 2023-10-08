@@ -17,8 +17,8 @@ body {
 	@include adaptiv-value("font-size", 20, 18);
 	line-height: 1.2;
 	color: var(--dark);
-
 	background-color: #fff;
+
 	&.dark-theme {
 		background-color: var(--dark);
 		color: white;
@@ -44,10 +44,35 @@ section {
 	color: white;
 	border-radius: 100px;
 	font-weight: 500;
+	user-select: none;
+
+	@media (pointer: fine) {
+		&:hover {
+			background-color: var(--deep-main);
+		}
+	}
+
+	&_sec {
+		background-color: rgba(var(--deep-main), 0.12);
+		color: var(--deep-main);
+
+		@media (pointer: fine) {
+			&:hover {
+				background-color: rgba(65, 164, 223, 0.16);
+			}
+		}
+	}
 
 	&_hollow {
-		border-color: white;
+		border-color: rgba(white, 0.6);
 		background-color: transparent;
+
+		@media (pointer: fine) {
+			&:hover {
+				background-color: transparent;
+				border-color: white;
+			}
+		}
 	}
 }
 
@@ -150,7 +175,7 @@ section {
 
 		&::before {
 			content: "";
-			background: url('../img/icons/msg-tail.svg') bottom right / contain no-repeat;
+			background: url("../img/icons/msg-tail.svg") bottom right / contain no-repeat;
 			width: 25px;
 			height: 25px;
 			position: absolute;
@@ -182,7 +207,7 @@ section {
 	padding: 11px 0;
 	border-radius: 5px;
 	text-align: center;
-	@include adaptiv-value('font-size', 19, 10);
+	@include adaptiv-value("font-size", 19, 10);
 }
 .tg-code {
 	background-color: var(--dark);
@@ -216,6 +241,11 @@ body {
 			color: rgba(255, 255, 255, 0.8);
 		}
 	}
+}
+
+img {
+	pointer-events: none;
+	user-select: none;
 }
 
 //===========================================================

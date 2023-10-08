@@ -15,10 +15,13 @@ switchThemeModeBtn.addEventListener('click', function () {
 	}
 })
 
-setInterval(() => changeOrder(document.querySelectorAll(".features-rates__item")), 700);
+let oneClickInterval
+let ratesInterval
+
+currenciesAnimation()
+
 setInterval(() => changeOrder(document.querySelectorAll(".phone-notice"), true), 1300);
 setInterval(() => changeOrder(document.querySelectorAll(".features-anon .tg-msg"), true), 1300);
-setInterval(currenciesAnim, 400);
 setInterval(statisticsAnim, 1150);
 
 
@@ -49,6 +52,64 @@ function switchTheme(theme) {
 			});
 		})
 	})
+}
+
+function currenciesAnimation() {
+	const interval = setInterval(() => {
+		let curIndex = null;
+		currenciesItems.forEach((item, i) => {
+			if (item.classList.contains('active')) {
+				curIndex = i
+			}
+		})
+
+		if (curIndex === null) {
+			currenciesItems[0].classList.add('active')
+
+		} else {
+			currenciesItems[curIndex].classList.remove('active')
+
+			if (curIndex !== currenciesItems.length - 1) {
+				currenciesItems[curIndex + 1].classList.add('active')
+			} else {
+				clearInterval(interval)
+				ratesAnimation()
+			}
+		}
+	}, 400);
+}
+function oneClickAnimation() {
+	
+}
+function ratesAnimation() {
+
+	let steps = 0
+	const allSlides = document.querySelectorAll(".features-rates__item")
+
+	const interval = setInterval(() => {
+		for (const slide of allSlides) {
+			const order = +slide.dataset.order;
+			switch (order) {
+				case 1:
+					slide.setAttribute("data-order", 2);
+					break;
+				case 2:
+					slide.setAttribute("data-order", 3);
+					break;
+				case 3:
+					slide.setAttribute("data-order", 1);
+					break;
+			}
+		}
+		steps++
+
+		if (steps >= 3) {
+			clearInterval(interval)
+			fulfill()
+		}
+
+
+	}, 700);
 }
 
 function changeOrder(allSlides, reverse = false) {
@@ -88,21 +149,9 @@ function changeOrder(allSlides, reverse = false) {
 
 }
 const currenciesItems = document.querySelectorAll('.features-currencies-item')
-function currenciesAnim() {
-	let curIndex;
-	currenciesItems.forEach((item, i) => {
-		if (item.classList.contains('active')) {
-			curIndex = i
-		}
-	})
+function currenciesAnim(interval) {
 
-	currenciesItems[curIndex].classList.remove('active')
 
-	if (curIndex === currenciesItems.length - 1) {
-		currenciesItems[0].classList.add('active')
-		return
-	}
-	currenciesItems[curIndex + 1].classList.add('active')
 }
 
 const statisticsMsg = document.querySelectorAll('.features-statistics__body .tg-msg')
