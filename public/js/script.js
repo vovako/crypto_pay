@@ -17,8 +17,9 @@ switchThemeModeBtn.addEventListener('click', function () {
 
 setInterval(() => changeOrder(document.querySelectorAll(".features-rates__item")), 700);
 setInterval(() => changeOrder(document.querySelectorAll(".phone-notice"), true), 1300);
-setInterval(() => changeOrder(document.querySelectorAll(".features-anon .tg-msg"), true), 1000);
+setInterval(() => changeOrder(document.querySelectorAll(".features-anon .tg-msg"), true), 1300);
 setInterval(currenciesAnim, 400);
+setInterval(statisticsAnim, 1150);
 
 
 function switchTheme(theme) {
@@ -102,6 +103,28 @@ function currenciesAnim() {
 		return
 	}
 	currenciesItems[curIndex + 1].classList.add('active')
+}
+
+const statisticsMsg = document.querySelectorAll('.features-statistics__body .tg-msg')
+const statisticsButtons = [...document.querySelectorAll('.features-statistics__body .tg-action')].slice(0, 3)
+function statisticsAnim() {
+	let curIndex;
+	statisticsButtons.forEach((btn, i) => {
+		if (btn.classList.contains('active')) {
+			curIndex = i
+		}
+	})
+
+	statisticsButtons[curIndex].classList.remove('active')
+	statisticsMsg[curIndex].classList.remove('active')
+
+	if (curIndex === statisticsButtons.length - 1) {
+		statisticsButtons[0].classList.add('active')
+		statisticsMsg[0].classList.add('active')
+		return
+	}
+	statisticsButtons[curIndex + 1].classList.add('active')
+	statisticsMsg[curIndex + 1].classList.add('active')
 }
 
 // slider

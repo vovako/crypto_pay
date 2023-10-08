@@ -273,20 +273,55 @@
 			justify-content: center;
 			flex: 1;
 
+			&__msg-list {
+				position: relative;
+			}
+
 			&__actions {
 				display: grid;
 				grid-template-columns: repeat(2, 1fr);
 				gap: 3px;
 			}
 
+			.tg-msg {
+				@include adaptiv-value("border-radius", 16, 9);
+				border-bottom-left-radius: 0;
+				border-bottom-right-radius: 0;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				left: 0;
+				z-index: 0;
+				opacity: 0;
+				margin-bottom: 0;
+				transition: 900ms opacity;
+
+				&.active {
+					position: relative;
+					z-index: 1;
+					opacity: 1;
+				}
+			}
+
 			.tg-action {
 				background: rgba(54, 136, 194, 0.82);
 				@include adaptiv-value("padding-top", 15, 8);
 				@include adaptiv-value("padding-bottom", 15, 8);
+				transition: 900ms background-color;
 
 				&:nth-last-child(1),
 				&:nth-last-child(2) {
 					grid-column: span 2;
+				}
+
+				&.active {
+					background-color: hsla(205, 56%, 40%, 0.82);
+					&::before,
+					&::after {
+						content: "·";
+						margin: 0 4px;
+					}
 				}
 			}
 		}
