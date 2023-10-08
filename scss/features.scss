@@ -9,6 +9,9 @@
 		@include adaptiv-value("gap", 20, 16);
 
 		@media (min-width: 700px) {
+			grid-template-columns: 1fr 1fr;
+		}
+		@media (min-width: 900px) {
 			grid-template-columns: 41% 18% 41%;
 			width: calc(100% - 40px);
 		}
@@ -40,6 +43,9 @@
 	@include adaptiv-value("gap", 42, 24);
 
 	@media (min-width: 700px) {
+		grid-column: span 2;
+	}
+	@media (min-width: 900px) {
 		grid-column: span 3;
 	}
 
@@ -117,9 +123,11 @@
 	&__btn {
 		border-radius: 17px;
 		background: linear-gradient(240deg, rgba(41, 126, 226, 0.12) 3.57%, rgba(24, 97, 182, 0.12) 86.24%);
-		font-size: 22px;
+		@include adaptiv-value('font-size', 22, 18);
+		@include adaptiv-value('padding', 18, 16);
+		@include adaptiv-value('padding-left', 40, 35);
+		@include adaptiv-value('padding-right', 40, 35);
 		font-weight: 500;
-		padding: 18px 40px;
 		display: inline-flex;
 		justify-content: center;
 		align-items: center;
@@ -138,6 +146,10 @@
 		right: 0;
 		bottom: 0;
 		transform: translate(100%, 100%);
+
+		svg {
+			@include adaptiv-value('width', 46, 38);
+		}
 
 		&.anim {
 			animation: cursor 2s 1 linear paused;
@@ -262,6 +274,9 @@
 }
 .features-statistics {
 	@media (min-width: 700px) {
+		grid-column: span 2;
+	}
+	@media (min-width: 900px) {
 		grid-column: 2 / span 2;
 		grid-row: 2 / span 2;
 	}
@@ -277,6 +292,13 @@
 			flex-direction: column;
 			justify-content: center;
 			flex: 1;
+
+			&__wrapper {
+				@media (min-width: 500px) and (max-width: 900px) {
+					margin: 0 auto;
+					width: clamp(336px, 5vw, 400px);
+				}
+			}
 
 			&__msg-list {
 				position: relative;
@@ -340,7 +362,7 @@
 }
 .features-send {
 	padding-top: 0;
-	@media (min-width: 700px) {
+	@media (min-width: 900px) {
 		grid-column: span 2;
 	}
 	&__body {
@@ -473,9 +495,16 @@
 			@include adaptiv-value("padding-top", 48, 24);
 			@include adaptiv-value("padding-bottom", 48, 24);
 
+			&__wrapper {
+				@media (min-width: 400px) and (max-width: 900px) {
+					margin: 0 auto;
+					width: min(100%, 266px);
+				}
+			}
+
 			.tg__msg-list {
 				position: relative;
-				@include adaptiv-value("height", 153, 123);
+				@include adaptiv-value("height", 153, 112);
 			}
 
 			.tg-msg {
@@ -510,7 +539,7 @@
 					transform: translateY(-35%) scale(0.9);
 					opacity: 0.7;
 					&::after {
-						opacity: 0.7;
+						opacity: 0.9;
 					}
 				}
 				&[data-order="3"] {
