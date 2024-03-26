@@ -43,7 +43,7 @@ let sliderCount = 0,
 	sliderWidth;
 
 // Автоматическое перелистывание слайдов
-let timeout = setInterval(nextSlide, 2000);
+let timeout = setInterval(nextSlide, 4000);
 
 window.addEventListener('resize', showSlide)
 
@@ -104,7 +104,7 @@ sliderDots.forEach((dot, index) => {
 
 		clearInterval(timeout)
 
-		timeout = setInterval(nextSlide, 2000);
+		timeout = setInterval(nextSlide, 4000);
 	})
 })
 

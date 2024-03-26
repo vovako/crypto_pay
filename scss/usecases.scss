@@ -140,9 +140,8 @@
 
 	&__line {
 		display: flex;
-
 		&.anim {
-			animation: fade 0.6s forwards ease-out;
+			animation: fade 1s forwards ease-in;
 		}
 	}
 
